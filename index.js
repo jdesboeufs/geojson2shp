@@ -4,6 +4,7 @@ const {join} = require('path')
 const {PassThrough, Duplex} = require('stream')
 const createRawShpWriteStream = require('shp-write-stream')
 const {ZipFile} = require('yazl')
+const {reproject} = require('reproject')
 const detectSchema = require('./lib/detect-schema')
 
 function convert(options = {}) {
@@ -15,8 +16,21 @@ function convert(options = {}) {
   const zipFile = new ZipFile()
   const zipStream = zipFile.outputStream
 
+  let _reproject
   let _schema = options.schema
   let _internalShpWriteStream
+
+  if (options.reprojectTo) {
+    if (!Number.isInteger(options.reprojectTo)) {
+      throw new TypeError('reprojectTo option must be a integer')
+    }
+    if (options.reprojectFrom && !Number.isInteger(options.reprojectFrom)) {
+      throw new TypeError('reprojectFrom option must be a integer')
+    }
+    const from = require(`epsg-index/s/${options.reprojectFrom || 4326}.json`).proj4
+    const to = require(`epsg-index/s/${options.reprojectTo}.json`).proj4
+    _reproject = f => reproject(f, from, to)
+  }
 
   function getInternalShpWriteStream() {
     if (!_internalShpWriteStream) {
@@ -71,7 +85,7 @@ function convert(options = {}) {
       if (!_schema) {
         _schema = detectSchema(feature.properties)
       }
-      getInternalShpWriteStream().write(feature, cb)
+      getInternalShpWriteStream().write(_reproject ? _reproject(feature) : feature, cb)
     },
     final(cb) {
       getInternalShpWriteStream().end()

@@ -934,7 +934,7 @@ concat-map@0.0.1:
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/concat-map/-/concat-map-0.0.1.tgz#d8a96bd77fd68df7793a73036a3ba0d5405d477b"
 
-concat-stream@^1.6.0:
+concat-stream@^1.5.1, concat-stream@^1.6.0:
   version "1.6.2"
   resolved "https://registry.yarnpkg.com/concat-stream/-/concat-stream-1.6.2.tgz#904bdf194cd3122fc675c77fc4ac3d4ff0fd1a34"
   dependencies:
@@ -1185,6 +1185,12 @@ enhance-visitors@^1.0.0:
 env-editor@^0.3.1:
   version "0.3.1"
   resolved "https://registry.yarnpkg.com/env-editor/-/env-editor-0.3.1.tgz#30d0540c2101414f258a94d4c0a524c06c13e3c6"
+
+epsg-index@^0.13.0:
+  version "0.13.0"
+  resolved "https://registry.yarnpkg.com/epsg-index/-/epsg-index-0.13.0.tgz#18c86b9ca6c4acbea586e921d012da0a1fb76dba"
+  dependencies:
+    semver "^5.5.0"
 
 equal-length@^1.0.0:
   version "1.0.1"
@@ -1657,7 +1663,7 @@ gauge@~2.7.3:
     strip-ansi "^3.0.1"
     wide-align "^1.1.0"
 
-geojson-stream@^0.0.1:
+geojson-stream@0.0.1, geojson-stream@^0.0.1:
   version "0.0.1"
   resolved "https://registry.yarnpkg.com/geojson-stream/-/geojson-stream-0.0.1.tgz#1a1d617167041c7302a45470318164699761502f"
   dependencies:
@@ -2584,6 +2590,10 @@ merge2@^1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/merge2/-/merge2-1.2.1.tgz#271d2516ff52d4af7f7b710b8bf3e16e183fef66"
 
+mgrs@1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/mgrs/-/mgrs-1.0.0.tgz#fb91588e78c90025672395cb40b25f7cd6ad1829"
+
 micromatch@^2.1.5:
   version "2.3.11"
   resolved "https://registry.yarnpkg.com/micromatch/-/micromatch-2.3.11.tgz#86677c97d1720b363431d04d0d15293bd38c1565"
@@ -3126,6 +3136,13 @@ progress@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/progress/-/progress-2.0.0.tgz#8a1be366bf8fc23db2bd23f10c6fe920b4389d1f"
 
+proj4@^2.4.4:
+  version "2.4.4"
+  resolved "https://registry.yarnpkg.com/proj4/-/proj4-2.4.4.tgz#c03d825e380f6850a4a7af5d20d365f6b72c4042"
+  dependencies:
+    mgrs "1.0.0"
+    wkt-parser "^1.2.0"
+
 proto-props@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/proto-props/-/proto-props-1.1.0.tgz#e2606581dd24aa22398aeeeb628fc08e2ec89c91"
@@ -3327,6 +3344,15 @@ repeating@^2.0.0:
   resolved "https://registry.yarnpkg.com/repeating/-/repeating-2.0.1.tgz#5214c53a926d3552707527fbab415dbc08d06dda"
   dependencies:
     is-finite "^1.0.0"
+
+reproject@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/reproject/-/reproject-1.2.1.tgz#1ee9150de8b364627199d3415d59214b7ef77cb8"
+  dependencies:
+    concat-stream "^1.5.1"
+    geojson-stream "0.0.1"
+    minimist "^1.2.0"
+    proj4 "^2.4.4"
 
 require-precompiled@^0.1.0:
   version "0.1.0"
@@ -3919,6 +3945,10 @@ widest-line@^2.0.0:
   resolved "https://registry.yarnpkg.com/widest-line/-/widest-line-2.0.0.tgz#0142a4e8a243f8882c0233aa0e0281aa76152273"
   dependencies:
     string-width "^2.1.1"
+
+wkt-parser@^1.2.0:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/wkt-parser/-/wkt-parser-1.2.1.tgz#3339689dbc549c103fc5c7447543534785ff8d4d"
 
 wordwrap@~1.0.0:
   version "1.0.0"
