@@ -1,0 +1,33 @@
+{
+  "name": "geojson2shp",
+  "version": "0.0.1",
+  "description": "Convert GeoJSON into Shapefile in pure JavaScript",
+  "main": "index.js",
+  "repository": "git@github.com:jdesboeufs/geojson2shp.git",
+  "author": "Jérôme Desboeufs <jerome.desboeufs@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "bin": "cli.js",
+  "scripts": {
+    "lint": "xo",
+    "test": "ava"
+  },
+  "dependencies": {
+    "geojson-stream": "^0.0.1",
+    "gunzip-stream": "^1.0.1",
+    "pump": "^3.0.0",
+    "shp-write-stream": "^2.0.0",
+    "yazl": "^2.4.3"
+  },
+  "devDependencies": {
+    "ava": "^0.25.0",
+    "xo": "^0.20.3"
+  },
+  "xo": {
+    "semicolon": false,
+    "space": 2
+  },
+  "engines": {
+    "node": ">= 8"
+  }
+}
