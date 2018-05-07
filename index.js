@@ -7,6 +7,16 @@ const {ZipFile} = require('yazl')
 const {reproject} = require('reproject')
 const detectSchema = require('./lib/detect-schema')
 
+function readProjectionNumber(userParam, defaultValue) {
+  if (!userParam) {
+    return defaultValue
+  }
+  if (!Number.isInteger(userParam)) {
+    throw new TypeError('ProjectionNumber must be an integer')
+  }
+  return userParam
+}
+
 function convert(options = {}) {
   const tmpDir = options.tmpDir || process.env.TMP_DIR || tmpdir()
   const id = randomizer()
@@ -20,17 +30,16 @@ function convert(options = {}) {
   let _schema = options.schema
   let _internalShpWriteStream
 
-  if (options.reprojectTo) {
-    if (!Number.isInteger(options.reprojectTo)) {
-      throw new TypeError('reprojectTo option must be a integer')
-    }
-    if (options.reprojectFrom && !Number.isInteger(options.reprojectFrom)) {
-      throw new TypeError('reprojectFrom option must be a integer')
-    }
-    const from = require(`epsg-index/s/${options.reprojectFrom || 4326}.json`).proj4
-    const to = require(`epsg-index/s/${options.reprojectTo}.json`).proj4
+  const sourceCrs = readProjectionNumber(options.sourceCrs, 4326)
+  const targetCrs = readProjectionNumber(options.targetCrs, sourceCrs)
+
+  if (sourceCrs !== targetCrs) {
+    const from = require(`epsg-index/s/${sourceCrs}.json`).proj4
+    const to = require(`epsg-index/s/${targetCrs}.json`).proj4
     _reproject = f => reproject(f, from, to)
   }
+
+  const prjFileContent = Buffer.from(require(`epsg-index/s/${targetCrs}.json`).wkt)
 
   function getInternalShpWriteStream() {
     if (!_internalShpWriteStream) {
@@ -65,6 +74,9 @@ function convert(options = {}) {
 
           // Add files to archive
           Object.values(context).forEach(({shpType, extension, tmpFilePath, header}) => {
+            if (extension === 'shp') {
+              zipFile.addBuffer(prjFileContent, `${shpType}.prj`)
+            }
             const stream = new PassThrough()
             zipFile.addReadStream(stream, `${shpType}.${extension}`)
             stream.write(header)
