@@ -22,6 +22,7 @@ function convert(options = {}) {
   const id = randomizer()
   const tmpFilesPrefix = join(tmpDir, id)
   const context = {}
+  const layerName = options.layer || 'features'
 
   const zipFile = new ZipFile()
   const zipStream = zipFile.outputStream
@@ -71,14 +72,16 @@ function convert(options = {}) {
           cleanTmpFiles(context)
         } else {
           addHeadersToContext(headers, context)
+          const shpTypes = Object.keys(headers)
+          const writeShpType = shpTypes.length > 1
 
           // Add files to archive
           Object.values(context).forEach(({shpType, extension, tmpFilePath, header}) => {
             if (extension === 'shp') {
-              zipFile.addBuffer(prjFileContent, `${shpType}.prj`)
+              zipFile.addBuffer(prjFileContent, getFileName(layerName, shpType, 'prj', writeShpType))
             }
             const stream = new PassThrough()
-            zipFile.addReadStream(stream, `${shpType}.${extension}`)
+            zipFile.addReadStream(stream, getFileName(layerName, shpType, extension, writeShpType))
             stream.write(header)
             const content = createReadStream(tmpFilePath)
             content.pipe(stream)
@@ -121,6 +124,13 @@ function convert(options = {}) {
   })
 
   return duplex
+}
+
+function getFileName(layerName, shpType, extension, writeShpType = true) {
+  if (writeShpType) {
+    return `${layerName}.${shpType}.${extension}`
+  }
+  return `${layerName}.${extension}`
 }
 
 function randomizer() {
