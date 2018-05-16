@@ -103,8 +103,7 @@ function convert(options = {}) {
       getInternalShpWriteStream().write(_reproject ? _reproject(feature) : feature, cb)
     },
     final(cb) {
-      getInternalShpWriteStream().end()
-      cb()
+      getInternalShpWriteStream().end(cb)
     },
     read() {
       return zipStream.read()
@@ -121,6 +120,10 @@ function convert(options = {}) {
         hasMoreData = false
       }
     }
+  })
+
+  zipStream.on('end', () => {
+    duplex.push(null)
   })
 
   return duplex
