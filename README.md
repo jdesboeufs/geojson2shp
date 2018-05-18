@@ -28,13 +28,34 @@ cat my.geojson | npx geojson2shp > my-shp.zip
 
 ## Usage (Node.js)
 
+### Basic
+
+```js
+const {convert} = require('geojson2shp')
+
+const options = {
+  layer: 'my-layer',
+  targetCrs: 2154
+}
+
+// Paths
+await convert('/path/to/source.geojson', '/path/to/dest-shp.zip', options)
+
+// Streams
+await convert(inputGeoJSONStream, outputZippedShapefileStream, options)
+
+// Or mix them ;)
+```
+
+### Custom stream
+
 ```js
 const fs = require('fs')
-const convert = require('geojson2shp')
+const {createConvertStream} = require('geojson2shp')
 
 
 myGeoJSONStream
-  .pipe(convert({
+  .pipe(createConvertStream({
     targetCrs: 2154,
     layer: 'my-layer'
   }))

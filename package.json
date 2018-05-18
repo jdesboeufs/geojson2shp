@@ -16,6 +16,7 @@
     "epsg-index": "^0.13.0",
     "geojson-stream": "^0.0.1",
     "gunzip-stream": "^1.0.1",
+    "is-stream": "^1.1.0",
     "pump": "^3.0.0",
     "reproject": "^1.2.1",
     "shp-write-stream": "^2.0.0",
