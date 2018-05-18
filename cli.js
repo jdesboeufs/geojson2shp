@@ -2,13 +2,13 @@
 const {createGunzip} = require('gunzip-stream')
 const {parse} = require('geojson-stream')
 const pump = require('pump')
-const {convert} = require('.')
+const {createConvertStream} = require('.')
 
 pump(
   process.stdin,
   createGunzip(),
   parse(),
-  convert(),
+  createConvertStream(),
   process.stdout,
   err => {
     if (err) {
