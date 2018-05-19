@@ -44,6 +44,17 @@ await convert('/path/to/source.geojson', '/path/to/dest-shp.zip', options)
 // Streams
 await convert(inputGeoJSONStream, outputZippedShapefileStream, options)
 
+// FeatureCollection as input
+const featureCollection = {type: 'FeatureCollection', features: [/* */]}
+await convert(featureCollection, '/path/to/dest-shp.zip', options)
+
+// Features as input
+const features = [
+  {type: 'Feature', geometry: {/* */}, properties: {}},
+  {type: 'Feature', geometry: {/* */}, properties: {}}
+]
+await convert(features, '/path/to/dest-shp.zip', options)
+
 // Or mix them ;)
 ```
 

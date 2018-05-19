@@ -18,12 +18,14 @@
     "gunzip-stream": "^1.0.1",
     "is-stream": "^1.1.0",
     "pump": "^3.0.0",
+    "pumpify": "^1.5.1",
     "reproject": "^1.2.1",
     "shp-write-stream": "^2.0.0",
     "yazl": "^2.4.3"
   },
   "devDependencies": {
     "ava": "^0.25.0",
+    "dev-null": "^0.1.1",
     "xo": "^0.20.3"
   },
   "xo": {

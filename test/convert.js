@@ -1,0 +1,11 @@
+const test = require('ava')
+const devnull = require('dev-null')
+const {convert} = require('..')
+
+const ptNullIsland = {type: 'Point', coordinates: [0, 0]}
+const featureNullIsland = {type: 'Feature', properties: {id: 1}, geometry: ptNullIsland}
+
+test('convert: regular FeatureCollection', async t => {
+  await convert([featureNullIsland], devnull())
+  t.pass()
+})
