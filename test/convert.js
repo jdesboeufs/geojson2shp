@@ -9,3 +9,8 @@ test('convert: regular FeatureCollection', async t => {
   await convert([featureNullIsland], devnull())
   t.pass()
 })
+
+test('convert: empty FeatureCollection', async t => {
+  await convert([], devnull())
+  t.pass()
+})
