@@ -20,7 +20,6 @@
     "pump": "^3.0.0",
     "pumpify": "^1.5.1",
     "reproject": "^1.2.1",
-    "shp-write-stream": "^2.0.0",
     "yazl": "^2.4.3"
   },
   "devDependencies": {
@@ -30,7 +29,10 @@
   },
   "xo": {
     "semicolon": false,
-    "space": 2
+    "space": 2,
+    "rules": {
+      "unicorn/no-abusive-eslint-disable": "warn"
+    }
   },
   "engines": {
     "node": ">= 8"
