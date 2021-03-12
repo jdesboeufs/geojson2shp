@@ -27,13 +27,14 @@
   "devDependencies": {
     "ava": "^3.15.0",
     "dev-null": "^0.1.1",
-    "xo": "^0.20.3"
+    "xo": "^0.38.2"
   },
   "xo": {
     "semicolon": false,
     "space": 2,
     "rules": {
-      "unicorn/no-abusive-eslint-disable": "warn"
+      "unicorn/no-abusive-eslint-disable": "warn",
+      "unicorn/no-array-for-each": "off"
     }
   },
   "engines": {

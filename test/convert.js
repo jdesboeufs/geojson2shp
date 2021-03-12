@@ -1,4 +1,4 @@
-const {join} = require('path')
+const path = require('path')
 const test = require('ava')
 const devnull = require('dev-null')
 const {convert} = require('..')
@@ -17,6 +17,6 @@ test('convert: empty FeatureCollection', async t => {
 })
 
 test('convert: file as input', async t => {
-  await convert(join(__dirname, 'fixtures', 'simple.geojson'), devnull())
+  await convert(path.join(__dirname, 'fixtures', 'simple.geojson'), devnull())
   t.pass()
 })
