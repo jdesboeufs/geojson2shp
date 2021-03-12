@@ -3,7 +3,7 @@
   "version": "0.3.2",
   "description": "Convert GeoJSON into Shapefile in pure JavaScript",
   "main": "index.js",
-  "repository": "jdesboeufs/geojson2shp",
+  "repository": "https://github.com/jdesboeufs/geojson2shp",
   "author": "Jérôme Desboeufs <jerome.desboeufs@gmail.com>",
   "license": "MIT",
   "private": false,
