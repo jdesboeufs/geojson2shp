@@ -15,14 +15,14 @@
   "homepage": "https://github.com/jdesboeufs/geojson2shp#readme",
   "bugs": "https://github.com/jdesboeufs/geojson2shp/issues",
   "dependencies": {
-    "epsg-index": "^0.13.0",
-    "geojson-stream": "^0.0.1",
+    "epsg-index": "^1.1.0",
+    "geojson-stream": "^0.1.0",
     "gunzip-stream": "^1.0.1",
-    "is-stream": "^1.1.0",
+    "is-stream": "^2.0.0",
     "pump": "^3.0.0",
-    "pumpify": "^1.5.1",
-    "reproject": "^1.2.1",
-    "yazl": "^2.4.3"
+    "pumpify": "^2.0.1",
+    "reproject": "^1.2.6",
+    "yazl": "^2.5.1"
   },
   "devDependencies": {
     "ava": "^0.25.0",
