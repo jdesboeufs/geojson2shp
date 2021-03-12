@@ -1,8 +1,6 @@
 # geojson2shp
 Convert GeoJSON into Shapefile in pure JavaScript
 
-⚠️ Early version ⚠️
-
 ## Prerequisites
 
 * [Node.js](https://nodejs.org/en/download/package-manager/) 8.0+
