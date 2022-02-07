@@ -1,6 +1,6 @@
 {
   "name": "geojson2shp",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "Convert GeoJSON into Shapefile in pure JavaScript",
   "main": "index.js",
   "repository": "https://github.com/jdesboeufs/geojson2shp",
