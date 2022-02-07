@@ -15,7 +15,7 @@
   "homepage": "https://github.com/jdesboeufs/geojson2shp#readme",
   "bugs": "https://github.com/jdesboeufs/geojson2shp/issues",
   "dependencies": {
-    "epsg-index": "^1.1.0",
+    "epsg-index": "^1.2.0",
     "geojson-stream": "^0.1.0",
     "gunzip-stream": "^1.0.1",
     "is-stream": "^2.0.1",

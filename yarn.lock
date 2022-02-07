@@ -1586,10 +1586,10 @@ env-editor@^0.4.1:
   resolved "https://registry.yarnpkg.com/env-editor/-/env-editor-0.4.2.tgz#4e76568d0bd8f5c2b6d314a9412c8fe9aa3ae861"
   integrity sha512-ObFo8v4rQJAE59M69QzwloxPZtd33TpYEIjtKD1rrFDcM1Gd7IkDxEBU+HriziN6HSHQnBJi8Dmy+JWkav5HKA==
 
-epsg-index@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/epsg-index/-/epsg-index-1.1.0.tgz#a6798184b15bf8583dde04e731aa40fc666984ce"
-  integrity sha512-a74wQNUJdD5MnbTLU7cjRdtxeSL9tEU1ZLztxFtZlHNcIDOqPcNFYp1N7vCe79oBSVK94CYi0LlVTbSTzclkDA==
+epsg-index@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/epsg-index/-/epsg-index-1.2.0.tgz#d4b6cb060ecd15a38f5a1c4ebe5fd691cd26bb45"
+  integrity sha512-oYD3x1LKbOx9alk2khfGO94daYfM9BMQGqw+OWENTF94hutMYLXCM0l/lR5AgU+3j1cg841XnpCewcyMjexing==
 
 error-ex@^1.2.0, error-ex@^1.3.1:
   version "1.3.1"
