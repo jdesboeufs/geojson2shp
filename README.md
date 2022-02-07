@@ -3,7 +3,7 @@ Convert GeoJSON into Shapefile in pure JavaScript
 
 ## Prerequisites
 
-* [Node.js](https://nodejs.org/en/download/package-manager/) 8.0+
+* [Node.js](https://nodejs.org/en/download/package-manager/) 12+
 
 ## Usage (CLI)
 
